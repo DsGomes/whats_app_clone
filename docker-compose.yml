@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgres-db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=Postgres123
+    ports:
+      - 15432:5432
+    
+  pgadmin-db:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "teste@gmail.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin123"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres-db
